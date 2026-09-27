@@ -1,16 +1,16 @@
 @font-face {
     font-family: "persona5FontMenu";
-    src: url("./src/font/Persona5MenuFontPrototype-Regular.ttf) format(truetype)";
+    src: url("./src/font/Persona5MenuFontPrototype-Regular.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "persona5FontText";
-    src: url("./src/font/Markin-LT-Ultra-Bold.ttf) format(truetype)";
+    src: url("./src/font/Markin-LT-Ultra-Bold.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "persona5FontShatty";
-    src: url("./src/font/p5hatty-1.ttf) format(truetype)";
+    src: url("./src/font/p5hatty-1.ttf") format("truetype");
 }
 
 * {
