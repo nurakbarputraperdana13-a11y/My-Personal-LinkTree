@@ -235,7 +235,6 @@ hr {
 }
 
 .link a:focus {
-    transform: scale(1);
     text-shadow:  -1px 0px rgb(1, 192, 255), 0px 1px rgb(1, 192, 255),0px -1px rgb(255, 1, 1), 1px 0px rgb(255, 1, 1);
 }
 
