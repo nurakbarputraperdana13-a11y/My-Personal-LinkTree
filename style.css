@@ -1,0 +1,374 @@
+@font-face {
+    font-family: "persona5FontMenu";
+    src: url(/src/font/Persona5MenuFontPrototype-Regular.ttf) format(truetype);
+}
+
+@font-face {
+    font-family: "persona5FontText";
+    src: url(/src/font/Markin-LT-Ultra-Bold.ttf) format(truetype);
+}
+
+@font-face {
+    font-family: "persona5FontShatty";
+    src: url(/src/font/p5hatty-1.ttf) format(truetype);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+    font-size: 16px;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    width: 320px;
+    border: 5px solid black;
+    outline: 5px solid #ffff;
+    box-shadow: 4px -4px 0px 15px rgba(0, 0, 0, 0.8);
+    padding: 40px 30px;
+    background-color: rgba(110, 0, 0, 0.45);
+    z-index: 0;
+}
+
+#play-music {
+    font-family: "persona5FontShatty";
+    font-size: 16px;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 15px;
+    background-color: rgb(255, 0, 0);
+    border: 2px solid #ffff;
+    box-shadow: 2px -2px 0 2px rgba(0, 0, 0, 0.7);
+    transition: transform 0.2s ease;
+}
+
+#play-music:hover {
+    transform: translate(-2px, -2px);
+    outline: 1px solid rgb(1, 192, 255);
+    box-shadow: 2px -2px 0 2px rgba(0, 0, 0, 0.6);
+}
+
+#play-music img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+}
+
+.card .header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+h1 {
+    box-shadow: 3px -4px 0px 3.5px rgba(0, 0, 0, 0.79);
+    color: #fdfdfd;
+    width: 100%;
+    font-family: "persona5FontText";
+    font-size: 26.5px;
+    text-align: center;
+    margin-top: 8px;
+    background-color: #000000;
+    padding: 4px 4px;
+    border-bottom: 4px solid rgb(255, 255, 255);
+    border-left: 4px solid rgb(255, 255, 255);
+    border-top: 4px solid rgb(255, 0, 0);
+    border-right: 4px solid rgb(251, 0, 0);
+}
+
+p {
+    font-family: "persona5FontShatty";
+    font-size: 21px;
+    text-shadow:  -1px 0px rgb(255, 255, 255), 0px 1px rgb(255, 255, 255),0px -1px rgb(255, 255, 255), 1px 0px rgb(255, 255, 255);
+}
+
+hr {
+    border: 2px dashed #ffff;
+    opacity: 0.9;
+}
+
+.card .header div img {
+    width: 80px;
+    height: 80px;
+    border-left: 4px solid black;
+    border-top: 3px solid black;
+    border-right: 4px solid black;
+    border-bottom: 3px solid black;
+    outline: 4px solid #ffff ;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.card .header .img-box{
+    position: relative;
+}
+
+.card .header .img-box::after{
+    position: absolute;
+    content: "";
+    top: -6px;
+    left: 68px;
+    width: 36px;
+    background-color: rgb(216, 214, 214);
+    padding: 15px 15px;
+    border-radius: 36%;
+    z-index: 0;
+}
+
+.card .header .img-box .chat{
+    position: absolute;
+    top: -5.5px;
+    left: 78px;
+    z-index: 1;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card .link-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.link {
+    position: relative;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    font-family: "persona5FontMenu", sans-serif;
+}
+
+.link a {
+    display: block;
+    z-index: 1;
+    color: #060606;
+    padding: 8px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    width: 100%;
+    border: 5px solid black;
+    background-color: #ffff;
+    z-index: 0;
+}
+
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.spin.active {
+    transform: rotate(var(--angle));
+    animation: 3s ispin linear infinite;
+}
+
+@keyframes ispin {
+    from {
+        --angle:0deg;
+    }
+    to {
+        --angle:360deg;
+    }
+}
+
+.link::after, .link::before {
+    position: absolute;
+    content: " ";
+    width: 88%;
+    height: 70%;
+    padding: 8px;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+}
+
+.link::before {
+    filter: blur(.5rem);
+    opacity: 0.8;
+}
+
+.link:hover::after,.link:hover::before{
+    background-image: conic-gradient(from var(--angle), transparent 10%, rgb(1, 192, 255), rgb(255, 1, 1), transparent 90%);
+    animation: 2s spin linear infinite;
+    transform: scale(1.15);
+}
+
+.link a:hover{
+    transform: scale(1.05);
+}
+
+.link a:focus {
+    transform: scale(1);
+    text-shadow:  -1px 0px rgb(1, 192, 255), 0px 1px rgb(1, 192, 255),0px -1px rgb(255, 1, 1), 1px 0px rgb(255, 1, 1);
+}
+
+@keyframes spin {
+    from {
+        --angle:0deg;
+    }
+    to {
+        --angle:360deg;
+    }
+}
+
+.footer {
+    text-align: center;
+    position: relative;
+    padding-bottom: 17px;
+}
+
+.footer p {
+    text-align: center;
+    font-size: 14px;
+}
+
+
+.footer img {
+    position: absolute;
+    top: 20px;
+    left: 96px;
+    width:60px;
+    height:28px; 
+    object-fit:cover;
+    animation: width 1.5s linear infinite;
+}
+
+@keyframes width {
+    0%,100% {
+        transform: scale(1)
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+
+
+/* about me */
+.heading {
+    display: flex;
+    flex-direction: column;
+    color: rgb(255, 255, 255);
+    font-family: "persona5FontShatty";
+    font-size: 18px;
+    text-shadow:  -1px 0px rgb(3, 3, 3), 0px 1px rgb(1, 1, 1),0px -1px rgb(0, 0, 0), 1px 0px rgb(0, 0, 0);
+    text-align: justify;
+}
+
+.heading .h1 {
+    text-align: center;
+    font-family: "persona5FontMenu";
+    color: black;
+    font-size: 32px;
+    text-shadow:  -1px 0px rgb(255, 255, 255), 0px 1px rgb(255, 255, 255),0px -1px rgb(255, 255, 255), 1px 0px rgb(255, 255, 255);
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+}
+
+.skills .Skills {
+    font-family: "persona5FontShatty";
+    font-size: 32px;
+    color: #000000;
+    text-shadow:  -1px 0px rgb(255, 255, 255), 0px 1px rgb(255, 255, 255),0px -1px rgb(255, 255, 255), 1px 0px rgb(255, 255, 255);
+}
+
+
+.skills-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 13px;
+
+}
+
+.skills-box .skill {
+    background-color: #ffffff99;
+    padding: 21px 0px;
+    border: 4px solid rgb(255, 0, 0);
+    border-top: 4px solid rgb(200, 0, 0);
+    border-right: 4px solid rgb(200, 0, 0);
+    align-items: center;
+    align-content: center;
+    box-shadow: 3px -3px 0px 3px rgba(0, 0, 0, 0.79);
+    opacity: 0.9;
+    transition: all 0.2s ease;
+}
+
+.skills-box .skill:hover, .sosmed > div:hover {
+    transform: translate(-4px, -4px);
+    background-color: #ffffff;
+    opacity: 1;
+}
+
+.skill img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+}
+
+
+
+/* Contact Me */
+
+.sosmed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+}
+
+.sosmed > div {
+    font-size: 25px;
+    padding: 5px;
+    background-color: #ffff;
+    box-shadow: 2px -2px 0px 3px rgba(0, 0, 0, 0.79);
+    border-top: 3px solid rgb(255, 0, 0);
+    border-right: 3px solid rgb(255, 0, 0);
+    transition: all 0.2s ease;
+}
+
+.sosmed > div a {
+    text-decoration: none;
+    color: #000000;
+}
